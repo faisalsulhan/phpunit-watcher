@@ -28,7 +28,7 @@ abstract class Screen
 
     public function clear()
     {
-        passthru("echo '\033\143'");
+        passthru("clear && echo -en '\e[3J'");
 
         return $this;
     }
@@ -43,6 +43,7 @@ abstract class Screen
     public function clearPrompt()
     {
         $this->terminal->clearPrompt();
+        passthru("clear && echo -en '\e[3J'");
 
         return $this;
     }
